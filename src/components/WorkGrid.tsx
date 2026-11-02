@@ -51,6 +51,45 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
   const [open, setOpen] = useState<Project | null>(null);
   const origin = useRef<DOMRect | null>(null);
   const media = useRef<HTMLDivElement>(null);
+  const cards = useRef(new Map<string, HTMLElement>());
+  const before = useRef<Map<string, DOMRect> | null>(null);
+
+  // Remember where every visible card is, then switch the filter.
+  const changeFilter = (next: string) => {
+    if (next === filter) return;
+    const rects = new Map<string, DOMRect>();
+    cards.current.forEach((el, id) => {
+      if (!el.classList.contains("is-hidden")) rects.set(id, el.getBoundingClientRect());
+    });
+    before.current = rects;
+    setFilter(next);
+  };
+
+  // Glide cards that stay from their old spot to their new one, and fade in cards that appear.
+  useLayoutEffect(() => {
+    const rects = before.current;
+    before.current = null;
+    if (!rects || prefersReducedMotion()) return;
+    const easing = "cubic-bezier(.2,.8,.2,1)";
+    let entering = 0;
+    cards.current.forEach((el, id) => {
+      if (el.classList.contains("is-hidden")) return;
+      const from = rects.get(id);
+      const to = el.getBoundingClientRect();
+      if (from) {
+        const dx = from.left - to.left;
+        const dy = from.top - to.top;
+        if (dx || dy) el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: "none" }], { duration: 550, easing });
+      } else {
+        el.animate([{ opacity: 0, transform: "scale(.92)" }, { opacity: 1, transform: "none" }], {
+          duration: 450,
+          delay: 80 + entering++ * 60,
+          easing,
+          fill: "backwards",
+        });
+      }
+    });
+  }, [filter]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(null);
@@ -96,7 +135,7 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
               role="tab"
               aria-selected={filter === f.id}
               className={`filter${filter === f.id ? " is-active" : ""}`}
-              onClick={() => setFilter(f.id)}
+              onClick={() => changeFilter(f.id)}
             >
               {f.label}
             </button>
@@ -108,6 +147,10 @@ export function WorkGrid({ projects }: { projects: Project[] }) {
         {projects.map((p) => (
           <figure
             key={p.id}
+            ref={(el) => {
+              if (el) cards.current.set(p.id, el);
+              else cards.current.delete(p.id);
+            }}
             className={`project${filter !== "all" && p.category !== filter ? " is-hidden" : ""}`}
             onPointerMove={tilt}
             onPointerLeave={untilt}

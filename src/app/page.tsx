@@ -1,5 +1,6 @@
 import { HeroPortrait } from "@/components/HeroPortrait";
 import { Icon } from "@/components/Icon";
+import { Marquee } from "@/components/Marquee";
 import { Nav } from "@/components/Nav";
 import { OptionalImage } from "@/components/OptionalImage";
 import { ScrollEffects } from "@/components/ScrollEffects";
@@ -143,8 +144,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="marquee" aria-label="Tools I use">
-        <div className="marquee__track">
+      <Marquee label="Tools I use">
           {[0, 1].flatMap((copy) =>
             tools.map((t) => (
               <span key={`${copy}-${t}`} className="marquee__item" aria-hidden={copy === 1}>
@@ -156,8 +156,7 @@ export default async function Home() {
               </span>
             )),
           )}
-        </div>
-      </div>
+      </Marquee>
 
       <section className="work" id="work">
         <div className="work__inner">
