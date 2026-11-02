@@ -20,10 +20,25 @@ const bigShoulders = Big_Shoulders({
   weight: "900",
 });
 
+const title = "Johnfred | Graphic Designer";
+const description =
+  "Johnfred is a graphic designer creating bold social media graphics, brand identities and clean UI that help brands stand out.";
+
+// The share image itself lives next to this file (opengraph-image.jpg / twitter-image.jpg).
 export const metadata: Metadata = {
-  title: "Johnfred | Graphic Designer",
-  description:
-    "Johnfred is a graphic designer creating bold social media graphics, brand identities and clean UI that help brands stand out.",
+  metadataBase: new URL("https://johnfred.vercel.app"),
+  title,
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Johnfred",
+    title,
+    description,
+    locale: "en_KE",
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({
