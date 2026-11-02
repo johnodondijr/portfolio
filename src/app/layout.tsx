@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { site } from "@/config/site";
+import { Big_Shoulders, Inter_Tight, Syne } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+});
+
+const bigShoulders = Big_Shoulders({
+  variable: "--font-big-shoulders",
+  subsets: ["latin"],
+  weight: "900",
 });
 
 export const metadata: Metadata = {
-  title: { default: `${site.name} — ${site.role}`, template: `%s — ${site.name}` },
-  description: site.tagline,
+  title: "Johnfred | Graphic Designer",
+  description:
+    "Johnfred is a graphic designer creating bold social media graphics, brand identities and clean UI that help brands stand out.",
 };
 
 export default function RootLayout({
@@ -26,12 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+    <html lang="en" className={`${interTight.variable} ${syne.variable} ${bigShoulders.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
