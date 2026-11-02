@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const revealSelector =
-  ".about__text, .about__media, .services__head, .service-card, .work__inner, .process__list li, .testimonials, .faq, .contact > *";
+  ".about__text, .about__media, .services__head, .service-card, .work__inner, .process__list li, .testimonials, .faq, .contact > :not(.contact__title)";
 
 // Fade sections in as they scroll into view, and count up the [data-count] stats.
 export function ScrollEffects() {
@@ -20,6 +20,18 @@ export function ScrollEffects() {
       { threshold: 0.12 },
     );
     revealEls.forEach((el) => revealObserver.observe(el));
+
+    // Headings built with SplitWords slide their words up once they scroll into view.
+    const splitObserver = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          splitObserver.unobserve(entry.target);
+        }),
+      { threshold: 0.4 },
+    );
+    document.querySelectorAll("[data-split]").forEach((el) => splitObserver.observe(el));
 
     const countObserver = new IntersectionObserver((entries) =>
       entries.forEach((entry) => {
@@ -40,6 +52,7 @@ export function ScrollEffects() {
 
     return () => {
       revealObserver.disconnect();
+      splitObserver.disconnect();
       countObserver.disconnect();
     };
   }, []);

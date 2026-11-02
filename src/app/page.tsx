@@ -3,6 +3,7 @@ import { Icon } from "@/components/Icon";
 import { Nav } from "@/components/Nav";
 import { OptionalImage } from "@/components/OptionalImage";
 import { ScrollEffects } from "@/components/ScrollEffects";
+import { SplitWords } from "@/components/SplitWords";
 import { Testimonials } from "@/components/Testimonials";
 import { ToolIcon } from "@/components/ToolIcon";
 import { WorkGrid } from "@/components/WorkGrid";
@@ -17,12 +18,26 @@ export default async function Home() {
 
   return (
     <>
+      <div className="bg-mesh" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
       <Nav />
       <ScrollEffects />
 
       <header className="hero" id="home">
-        <h1 className="hero__name">
-          JOHNFRED <span className="hero__role">GRAPHIC DESIGNER</span>
+        <h1 className="hero__name" aria-label="Johnfred, graphic designer">
+          <span aria-hidden="true">
+            {[..."JOHNFRED"].map((letter, i) => (
+              <span key={i} className="hero__letter" style={{ ["--i" as string]: i }}>
+                {letter}
+              </span>
+            ))}
+          </span>{" "}
+          <span className="hero__role" aria-hidden="true">
+            GRAPHIC DESIGNER
+          </span>
         </h1>
         <HeroPortrait />
         <p className="hero__intro hero__intro--left">
@@ -150,14 +165,18 @@ export default async function Home() {
 
       <section className="work" id="work">
         <div className="work__inner">
-          <h2 className="work__title">Selected Work</h2>
+          <h2 className="work__title">
+            <SplitWords lines={["Selected Work"]} />
+          </h2>
           <WorkGrid projects={projects} />
         </div>
       </section>
 
       <section className="process section">
         <span className="eyebrow eyebrow--caps">My Process</span>
-        <h2 className="h2">From Idea to Final Design</h2>
+        <h2 className="h2">
+          <SplitWords lines={["From Idea to Final Design"]} />
+        </h2>
         <ol className="process__list">
           {process.map((step, i) => (
             <li key={step.title}>
@@ -189,9 +208,7 @@ export default async function Home() {
       <section className="contact" id="contact">
         <span className="eyebrow eyebrow--caps">Have a project in mind?</span>
         <h2 className="contact__title">
-          Let&apos;s make your brand
-          <br />
-          <em>stand out.</em>
+          <SplitWords lines={["Let's make your brand", "stand out."]} emphasizeLast />
         </h2>
         <a href={`mailto:${contact.email}?subject=New%20Project`} className="btn">
           Start a Project <span>→</span>

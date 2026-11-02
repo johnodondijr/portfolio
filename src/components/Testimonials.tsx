@@ -30,7 +30,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
     <section className="testimonials section">
       <div className="testimonials__head">
         <div>
-          <h2 className="h3">Testimonials</h2>
+          <h2 className="h2">Testimonials</h2>
           <p className="muted small">
             Kind words from some of the brands
             <br />
