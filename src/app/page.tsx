@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { OptionalImage } from "@/components/OptionalImage";
 import { ScrollEffects } from "@/components/ScrollEffects";
 import { Testimonials } from "@/components/Testimonials";
+import { ToolIcon } from "@/components/ToolIcon";
 import { WorkGrid } from "@/components/WorkGrid";
 import { contact, extras, faqs, process, services, stats, tools } from "@/content";
 import { getProjects, getTestimonials } from "@/lib/data";
@@ -34,8 +35,11 @@ export default async function Home() {
           <span className="status-dot" aria-hidden="true" />
           Available for new projects
         </span>
-        <a href="#about" className="hero__meta hero__meta--right">
-          (Scroll down)
+        <a href="#work" className="hero__meta hero__meta--right">
+          See my work
+          <span className="hero__arrow" aria-hidden="true">
+            ↓
+          </span>
         </a>
       </header>
 
@@ -133,7 +137,10 @@ export default async function Home() {
           {[0, 1].flatMap((copy) =>
             tools.map((t) => (
               <span key={`${copy}-${t}`} className="marquee__item" aria-hidden={copy === 1}>
-                <span>{t}</span>
+                <span className="tool">
+                  <ToolIcon name={t} />
+                  <span className="tool__name">{t}</span>
+                </span>
                 <i>✦</i>
               </span>
             )),

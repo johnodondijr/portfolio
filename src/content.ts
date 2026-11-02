@@ -51,6 +51,7 @@ export const tools = [
   "ChatGPT",
   "Gemini",
   "Claude",
+  "Higgsfield",
 ];
 
 export const filters = [

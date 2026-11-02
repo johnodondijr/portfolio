@@ -10,6 +10,7 @@
   --radius: 18px;
   --max: 1200px;
   --gutter: clamp(16px, 5vw, 56px);
+  --band-gap: clamp(32px, 5vw, 64px);
   --body: var(--font-inter-tight), system-ui, sans-serif;
   --display: var(--font-syne), var(--font-inter-tight), system-ui, sans-serif;
 }
@@ -85,7 +86,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   width: min(820px, 72vw); height: 82%;
   display: flex; align-items: flex-end; justify-content: center;
 }
-.hero__portrait img { max-height: 100%; width: auto; object-fit: contain; object-position: bottom; }
+.hero__portrait img { max-height: 100%; width: auto; object-fit: contain; object-position: bottom; transform: translateX(3.5%); }
 .hero__portrait-placeholder { display: none; }
 .hero__portrait.is-empty {
   height: 62%; border: 2px dashed rgba(0,0,0,.25); border-bottom: 0;
@@ -115,7 +116,12 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   animation: pulse 1.8s ease-out infinite;
 }
 @keyframes pulse { from { transform: scale(1); opacity: .7; } to { transform: scale(3); opacity: 0; } }
-.hero__meta--right { grid-column: 2; justify-self: end; color: var(--red); font-weight: 600; }
+.hero__meta--right {
+  grid-column: 2; justify-self: end; color: var(--red); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.hero__arrow { display: inline-block; animation: nudge 1.6s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
 
 /* ============ ABOUT ============ */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); }
@@ -156,6 +162,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 16px; }
 .tags li { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; opacity: .7; }
 
+.services.section { padding-bottom: var(--band-gap); }
 .services__extra {
   margin-top: 16px; padding: 20px 24px; border-radius: var(--radius);
   background: var(--ink); color: #fff;
@@ -170,12 +177,19 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .marquee { overflow: hidden; padding: 22px 0; background: var(--ink); color: var(--teal); }
 .marquee__track { display: flex; gap: 32px; width: max-content; animation: marquee 40s linear infinite; }
 .marquee__item { display: contents; }
-.marquee__track span { font-size: clamp(20px, 2.4vw, 30px); font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+.tool { display: inline-flex; align-items: center; gap: 12px; }
+.tool__name { font-size: clamp(20px, 2.4vw, 30px); font-weight: 600; letter-spacing: -0.02em; white-space: nowrap; }
+.tool__icon {
+  width: clamp(28px, 2.6vw, 36px); height: clamp(28px, 2.6vw, 36px); flex-shrink: 0;
+  border-radius: 9px; background: #fff; display: grid; place-items: center;
+}
+.tool__icon svg { width: 62%; height: 62%; }
+.tool__monogram { font-family: var(--display); font-size: 16px; font-weight: 800; line-height: 1; color: var(--ink); }
 .marquee__track i { color: #fff; font-style: normal; font-size: 18px; align-self: center; }
 @keyframes marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
 /* ============ WORK ============ */
-.work { padding: clamp(16px, 2vw, 24px); }
+.work { padding: var(--band-gap) clamp(16px, 2vw, 24px) clamp(16px, 2vw, 24px); }
 .work__inner {
   background: var(--ink); color: #fff; border-radius: 28px;
   padding: clamp(32px, 5vw, 64px) clamp(20px, 4vw, 56px);
@@ -315,6 +329,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
     position: relative; grid-row: 2; grid-column: 1;
     left: auto; bottom: auto; transform: none; width: auto; height: auto;
     margin: -9vw calc(-1 * var(--gutter)) 0;
+    justify-content: flex-start;
   }
   /* fade the photo into a dark band that holds the intro text */
   .hero__portrait::after {
@@ -328,9 +343,13 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .hero__intro { color: #fff; }
   .hero__meta { background: rgba(255,255,255,.08); color: #fff; }
   .hero__meta--right { color: var(--red); }
-  .hero__portrait img { width: 100%; max-width: 640px; max-height: none; margin: 0 auto; }
+  /* Enlarge the cut-out slightly and centre it on the head; the arms bleed off the right edge. */
+  .hero__portrait img {
+    flex-shrink: 0; max-width: none; max-height: none; transform: none;
+    width: min(116%, 740px); margin: 0 0 0 calc(50% - 0.465 * min(116%, 740px));
+  }
   .hero__intro--left { grid-row: 3; margin-top: 0; padding-top: 4px; }
-  .hero__meta--left, .hero__meta--right { grid-column: 1; grid-row: 4; margin-top: 24px; }
+  .hero__meta--left, .hero__meta--right { grid-column: 1; grid-row: 4; margin: 24px 0 0; }
   .hero__meta--right { justify-self: end; }
 }
 @media (max-width: 480px) {
@@ -340,14 +359,27 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
+  .hero__role, .hero__arrow { animation: none; }
 }
 
 /* ============ DISPLAY FONT ============ */
 .hero__name, .h2, .h3, .work__title, .contact__title,
-.about__stats strong, .project__ph, .service-card h3, .process__list h3, .marquee__track span {
+.about__stats strong, .project__ph, .service-card h3, .process__list h3, .tool__name {
   font-family: var(--display);
 }
-.hero__name { font-family: var(--font-big-shoulders), var(--display); font-weight: 900; letter-spacing: -0.01em; line-height: .82; font-size: clamp(80px, 23.5vw, 315px); }
-.hero__role { display: block; font-size: .5em; line-height: .9; color: rgba(34,37,40,.25); }
+/* Sized so "JOHNFRED" always fits inside the gutters, keeping it centred at every width. */
+.hero__name {
+  font-family: var(--font-big-shoulders), var(--display); font-weight: 900; letter-spacing: -0.01em; line-height: .82;
+  font-size: clamp(56px, calc((100vw - 2 * var(--gutter)) / 4.1), 290px);
+}
+/* A slow teal shine sweeps across "GRAPHIC DESIGNER". */
+.hero__role {
+  display: block; font-size: .5em; line-height: .9; color: transparent;
+  background: linear-gradient(100deg, rgba(34,37,40,.22) 45%, rgba(18,184,170,.85) 50%, rgba(34,37,40,.22) 55%);
+  background-size: 250% 100%; -webkit-background-clip: text; background-clip: text;
+  animation: role-in .9s .2s ease-out both, shine 5.5s 1s ease-in-out infinite;
+}
+@keyframes role-in { from { opacity: 0; transform: translateY(12px); letter-spacing: .04em; } }
+@keyframes shine { 0% { background-position: 100% 0; } 55%, 100% { background-position: 0 0; } }
 .work__title, .contact__title { letter-spacing: -0.03em; }
 .h2, .h3 { letter-spacing: -0.015em; }
