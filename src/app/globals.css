@@ -27,19 +27,21 @@ body {
 }
 img { display: block; max-width: 100%; }
 
-/* ============ BACKGROUND MESH ============ */
-/* Three heavily blurred colour fields that drift very slowly behind every section except the hero. */
-.bg-mesh { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.bg-mesh span {
-  position: absolute; width: 62vmax; height: 62vmax; border-radius: 50%;
-  filter: blur(90px); will-change: transform;
+/* ============ BACKGROUND GRID ============ */
+/* A faint graph-paper grid behind every section except the hero. The layer is one cell larger
+   than the screen and slides exactly one cell per loop, so the drift repeats seamlessly. */
+.bg-mesh { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; --cell: 28px; }
+.bg-mesh::before {
+  content: ""; position: absolute; inset: calc(-1 * var(--cell)) 0 0 calc(-1 * var(--cell));
+  background-image:
+    linear-gradient(to right, rgba(34,37,40,.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34,37,40,.07) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+  animation: grid-drift 7s linear infinite;
+  will-change: transform;
 }
-.bg-mesh span:nth-child(1) { background: var(--teal); opacity: .11; top: -10%; left: -22%; animation: mesh-a 28s ease-in-out infinite alternate; }
-.bg-mesh span:nth-child(2) { background: var(--yellow); opacity: .07; bottom: -25%; right: -20%; animation: mesh-b 34s ease-in-out infinite alternate; }
-.bg-mesh span:nth-child(3) { background: #9fb4ff; opacity: .08; top: 35%; left: 30%; animation: mesh-c 40s ease-in-out infinite alternate; }
-@keyframes mesh-a { to { transform: translate(28vw, 22vh) scale(1.15); } }
-@keyframes mesh-b { to { transform: translate(-26vw, -30vh) scale(.9); } }
-@keyframes mesh-c { to { transform: translate(-22vw, 18vh) scale(1.2); } }
+@keyframes grid-drift { to { transform: translate(var(--cell), var(--cell)); } }
+@media (max-width: 760px) { .bg-mesh { --cell: 22px; } }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
 
@@ -405,7 +407,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
-  .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh span { animation: none; }
+  .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh::before { animation: none; }
   .split__word { transform: none; transition: none; }
   .project__thumb { transform: none; }
 }

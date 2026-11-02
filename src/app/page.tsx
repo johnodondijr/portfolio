@@ -18,11 +18,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="bg-mesh" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
+      <div className="bg-mesh" aria-hidden="true" />
       <Nav />
       <ScrollEffects />
 
