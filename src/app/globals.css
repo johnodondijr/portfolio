@@ -34,8 +34,8 @@ img { display: block; max-width: 100%; }
 .bg-mesh::before {
   content: ""; position: absolute; inset: calc(-1 * var(--cell)) 0 0 calc(-1 * var(--cell));
   background-image:
-    linear-gradient(to right, rgba(34,37,40,.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(34,37,40,.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(34,37,40,.0175) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34,37,40,.0175) 1px, transparent 1px);
   background-size: var(--cell) var(--cell);
   animation: grid-drift 7s linear infinite;
   will-change: transform;
