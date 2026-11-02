@@ -58,9 +58,13 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   position: relative;
   min-height: 100vh; min-height: 100svh;
   padding: 120px var(--gutter) 32px;
+  /* The glow layer is larger than the hero and drifts slowly so the teal light feels alive. */
   background:
-    radial-gradient(ellipse 80% 55% at 50% 0%, var(--teal) 0%, rgba(52,231,215,.45) 45%, rgba(246,251,249,0) 80%),
+    radial-gradient(ellipse 62% 48% at 50% 0%, var(--teal) 0%, rgba(52,231,215,.45) 45%, rgba(246,251,249,0) 80%),
     var(--paper);
+  background-size: 130% 118%, auto;
+  background-position: 30% 0%, 0 0;
+  animation: glow-drift 14s ease-in-out infinite alternate;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -265,8 +269,13 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 /* ============ CONTACT ============ */
 .contact {
   text-align: center; padding: clamp(80px, 12vw, 160px) var(--gutter);
-  background: radial-gradient(ellipse 70% 70% at 50% 100%, var(--teal) 0%, rgba(52,231,215,.3) 50%, rgba(246,251,249,0) 85%);
+  background: radial-gradient(ellipse 54% 62% at 50% 100%, var(--teal) 0%, rgba(52,231,215,.3) 50%, rgba(246,251,249,0) 85%);
+  background-size: 130% 115%;
+  background-position: 70% 100%;
+  animation: glow-drift-up 12s ease-in-out infinite alternate;
 }
+@keyframes glow-drift { to { background-position: 70% 100%, 0 0; } }
+@keyframes glow-drift-up { to { background-position: 30% 0%; } }
 .contact__title { font-size: clamp(36px, 6.4vw, 88px); line-height: 1; letter-spacing: -0.045em; font-weight: 700; margin-bottom: 40px; }
 .contact__title em { font-style: normal; font-weight: 500; }
 .btn {
@@ -343,23 +352,26 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .hero__intro { color: #fff; }
   .hero__meta { background: rgba(255,255,255,.08); color: #fff; }
   .hero__meta--right { color: var(--red); }
-  /* Enlarge the cut-out slightly and centre it on the head; the arms bleed off the right edge. */
+  /* Enlarge the cut-out slightly and centre it on the shoulders (51.7% across the image),
+     so both shoulders sit the same distance from the screen edges. */
   .hero__portrait img {
     flex-shrink: 0; max-width: none; max-height: none; transform: none;
-    width: min(116%, 740px); margin: 0 0 0 calc(50% - 0.465 * min(116%, 740px));
+    width: min(108%, 740px); margin: 0 0 0 calc(50% - 0.517 * min(108%, 740px));
   }
   .hero__intro--left { grid-row: 3; margin-top: 0; padding-top: 4px; }
   .hero__meta--left, .hero__meta--right { grid-column: 1; grid-row: 4; margin: 24px 0 0; }
   .hero__meta--right { justify-self: end; }
 }
 @media (max-width: 480px) {
-  .services__grid, .process__list { grid-template-columns: 1fr; }
+  .services__grid { grid-template-columns: 1fr; }
+  .process__list { gap: 32px 16px; margin-top: 32px; }
+  .process__list h3 { font-size: 20px; margin-top: 14px; }
   .work__grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
-  .hero__role, .hero__arrow { animation: none; }
+  .hero, .contact, .hero__role, .hero__arrow { animation: none; }
 }
 
 /* ============ DISPLAY FONT ============ */
