@@ -38,9 +38,46 @@ function Canva() {
   );
 }
 
+// ChatGPT's app icon: the black OpenAI knot on a white rounded tile.
+function ChatGPT() {
+  return (
+    <svg viewBox="0 0 24 24" className="app-icon__svg">
+      <rect width="24" height="24" rx="5.4" fill="#fff" />
+      <path fill="#000" transform="translate(4.2 4.2) scale(.65)" d={toolIcons.ChatGPT.path} />
+    </svg>
+  );
+}
+
+function Gemini() {
+  return (
+    <svg viewBox="0 0 24 24" className="app-icon__svg">
+      <defs>
+        <linearGradient id="gemini-gradient" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stopColor="#4796E3" />
+          <stop offset="0.55" stopColor="#9177C7" />
+          <stop offset="1" stopColor="#CA6673" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#gemini-gradient)" d={toolIcons.Gemini.path} />
+    </svg>
+  );
+}
+
+function Claude() {
+  return (
+    <svg viewBox="0 0 24 24" className="app-icon__svg">
+      <path fill="#D97757" d={toolIcons.Claude.path} />
+    </svg>
+  );
+}
+
+const custom: Record<string, () => React.ReactElement> = { Figma, Canva, ChatGPT, Gemini, Claude };
+
+export const hasAppIcon = (name: string) => name in custom || name in adobe;
+
 export function AppIcon({ name }: { name: string }) {
-  if (name === "Figma") return <Figma />;
-  if (name === "Canva") return <Canva />;
+  const Custom = custom[name];
+  if (Custom) return <Custom />;
   const colors = adobe[name];
   const icon = toolIcons[name];
   if (!colors || !icon) return null;

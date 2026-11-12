@@ -234,8 +234,11 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   border-radius: 9px; background: #fff; display: grid; place-items: center;
 }
 .tool__icon svg { width: 62%; height: 62%; }
-.tool__icon { transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
-.tool:hover .tool__icon { transform: scale(1.18) rotate(-8deg); }
+.tool__icon, .tool .app-icon__svg { transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+.tool:hover .tool__icon, .tool:hover .app-icon__svg { transform: scale(1.18) rotate(-8deg); }
+/* Full-colour app icons in the tools banner */
+.tool .app-icon__svg { display: block; flex-shrink: 0; width: clamp(28px, 2.6vw, 36px); height: clamp(28px, 2.6vw, 36px); }
+.tool svg.app-icon__svg--figma { width: auto; }
 .tool__monogram { font-family: var(--display); font-size: 16px; font-weight: 800; line-height: 1; color: var(--ink); }
 .marquee__track i { color: #fff; font-style: normal; font-size: 18px; align-self: center; }
 @keyframes marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }

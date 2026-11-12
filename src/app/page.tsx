@@ -6,6 +6,7 @@ import { OptionalImage } from "@/components/OptionalImage";
 import { ScrollEffects } from "@/components/ScrollEffects";
 import { SplitWords } from "@/components/SplitWords";
 import { Testimonials } from "@/components/Testimonials";
+import { AppIcon, hasAppIcon } from "@/components/AppIcon";
 import { ToolIcon } from "@/components/ToolIcon";
 import { WorkGrid } from "@/components/WorkGrid";
 import { contact, extras, faqs, process, services, stats, tools } from "@/content";
@@ -149,7 +150,7 @@ export default async function Home() {
             tools.map((t) => (
               <span key={`${copy}-${t}`} className="marquee__item" aria-hidden={copy === 1}>
                 <span className="tool">
-                  <ToolIcon name={t} />
+                  {hasAppIcon(t) ? <AppIcon name={t} /> : <ToolIcon name={t} />}
                   <span className="tool__name">{t}</span>
                 </span>
                 <i>✦</i>
