@@ -1,0 +1,89 @@
+{
+  "projects": [
+    {
+      "id": "product-launch-campaign",
+      "title": "Product Launch Campaign",
+      "subtitle": "Social Media Graphics",
+      "category": "social",
+      "image_url": "/images/work/finance-app-campaign.webp",
+      "placeholder_label": "Social Campaign",
+      "placeholder_color": "#fdc121"
+    },
+    {
+      "id": "carousel-series",
+      "title": "Carousel Series",
+      "subtitle": "Social Media Graphics",
+      "category": "social",
+      "image_url": "/images/work/jenga-construction-carousel.webp",
+      "placeholder_label": "Carousel Series",
+      "placeholder_color": "#ff8a65"
+    },
+    {
+      "id": "mobile-app-interface",
+      "title": "Mobile App Interface",
+      "subtitle": "UI Design",
+      "category": "ui",
+      "image_url": "/images/work/bitewell-app-ui.webp",
+      "placeholder_label": "Mobile App UI",
+      "placeholder_color": "#9fb4ff"
+    },
+    {
+      "id": "live-event-poster",
+      "title": "Live Event Poster",
+      "subtitle": "Posters & Flyers",
+      "category": "social",
+      "image_url": "/images/work/unsilenced-poster.webp",
+      "placeholder_label": "Event Poster",
+      "placeholder_color": "#b6e3a8"
+    },
+    {
+      "id": "agency-brand-identity",
+      "title": "Agency Brand Identity",
+      "subtitle": "Branding",
+      "category": "branding",
+      "image_url": "/images/work/destiny-recruit-collage.webp",
+      "placeholder_label": "Brand Identity",
+      "placeholder_color": "#e8d5c4"
+    },
+    {
+      "id": "live-music-experience",
+      "title": "Live Music Experience",
+      "subtitle": "Event Posters & Tickets",
+      "category": "social",
+      "image_url": "/images/work/xii-live-music-campaign.webp",
+      "placeholder_label": "Live Music",
+      "placeholder_color": "#d4b3ff"
+    },
+    {
+      "id": "business-landing-page",
+      "title": "Business Landing Page",
+      "subtitle": "UI Design",
+      "category": "ui",
+      "image_url": "/images/work/vibebank-website-ui.webp",
+      "placeholder_label": "Website UI",
+      "placeholder_color": "#8ee3e0"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "xii-the-band",
+      "brand": "XII The Band",
+      "quote": "Johnfred designs our event posters and social media campaigns, and every drop gets our fans talking. Our shows look as big online as they feel on stage, and the hype starts the moment a poster goes up."
+    },
+    {
+      "id": "destiny-recruit-consults",
+      "brand": "Destiny Recruit Consults",
+      "quote": "We run our ads on the posts Johnfred designs and the results speak for themselves. Clean, professional visuals that bring in new clients and candidates every week."
+    },
+    {
+      "id": "alomar-agency",
+      "brand": "Alomar Agency",
+      "quote": "These designs don't just look good, they convert. Our ad campaigns now bring in real enquiries, and our page finally looks as sharp as the service we offer."
+    },
+    {
+      "id": "openfield-nucleus",
+      "brand": "Openfield Nucleus",
+      "quote": "Our software can be hard to explain, but the booklet makes it easy for anyone to follow. It's now our go-to piece for showing clients what we offer and how the platform works."
+    }
+  ]
+}
