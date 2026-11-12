@@ -143,6 +143,26 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .hero__arrow { display: inline-block; animation: nudge 1.6s ease-in-out infinite; }
 @keyframes nudge { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
 
+/* Design app icons floating around the portrait: they pop in after the photo, then bob gently. */
+.floaters { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.floater {
+  position: absolute; left: var(--x); top: var(--y); translate: -50% -50%;
+  animation: floater-in .7s cubic-bezier(.34,1.56,.64,1) both;
+  animation-delay: calc(1.1s + var(--i) * 110ms);
+}
+.floater .tool__icon {
+  width: clamp(38px, 3.6vw, 54px); height: clamp(38px, 3.6vw, 54px); border-radius: 30%;
+  box-shadow: 0 12px 28px rgba(34,37,40,.16), 0 2px 6px rgba(34,37,40,.08);
+  rotate: var(--rot);
+  animation: floater-bob var(--dur) ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -1.3s);
+}
+@keyframes floater-in { from { opacity: 0; scale: .3; } }
+@keyframes floater-bob {
+  from { transform: translateY(-7px) rotate(-3deg); }
+  to { transform: translateY(7px) rotate(3deg); }
+}
+
 /* ============ ABOUT ============ */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); }
 .about__text { position: sticky; top: 100px; align-self: start; }
@@ -403,6 +423,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .hero__meta--right { color: var(--red); }
   /* Enlarge the cut-out slightly and centre it on the shoulders (51.7% across the image),
      so both shoulders sit the same distance from the screen edges. */
+  .floater .tool__icon { width: 34px; height: 34px; border-radius: 10px; }
   .hero__portrait img {
     flex-shrink: 0; max-width: none; max-height: none; transform: none;
     width: min(108%, 740px); margin: 0 0 0 calc(50% - 0.517 * min(108%, 740px));
@@ -422,7 +443,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
-  .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh::before { animation: none; }
+  .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh::before, .floater, .floater .tool__icon { animation: none; }
   .split__word { transform: none; transition: none; }
   .marquee__track { animation: none; }
   .process__list li::before, .process__list li span { transform: none !important; opacity: 1 !important; transition: none; }
