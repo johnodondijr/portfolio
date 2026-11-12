@@ -152,25 +152,46 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .hero__arrow { display: inline-block; animation: nudge 1.6s ease-in-out infinite; }
 @keyframes nudge { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
 
-/* Design app icons floating around the portrait: they pop in after the photo, then bob gently. */
-.floaters { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+/* Design app icons floating around the portrait. Each one pops in after the photo, then
+   wanders along its own looping path (drift), sways (svg), and on desktop leans toward
+   the mouse by its depth (depth layer, driven by --px/--py from HeroPortrait). */
+.floaters { position: absolute; inset: 0; z-index: 1; pointer-events: none; --px: 0px; --py: 0px; }
 .floater {
   position: absolute; left: var(--x); top: var(--y); translate: -50% -50%;
-  animation: floater-in .7s cubic-bezier(.34,1.56,.64,1) both;
+  pointer-events: auto;
+  animation: floater-in .8s cubic-bezier(.34,1.56,.64,1) both;
   animation-delay: calc(1.1s + var(--i) * 110ms);
 }
-.floater svg.app-icon__svg--figma { width: auto; }
+.floater__depth {
+  display: block;
+  translate: calc(var(--px) * var(--depth)) calc(var(--py) * var(--depth));
+  transition: translate .9s cubic-bezier(.2,.8,.2,1);
+}
+.floater__drift {
+  display: block;
+  animation: floater-drift calc(var(--dur) * 1.7) ease-in-out infinite;
+  animation-delay: calc(var(--i) * -2.1s);
+}
 .floater .app-icon__svg {
   display: block; width: clamp(38px, 3.6vw, 54px); height: clamp(38px, 3.6vw, 54px);
   filter: drop-shadow(0 10px 14px rgba(34,37,40,.22)) drop-shadow(0 2px 3px rgba(34,37,40,.12));
   rotate: var(--rot);
-  animation: floater-bob var(--dur) ease-in-out infinite alternate;
+  animation: floater-sway var(--dur) ease-in-out infinite alternate;
   animation-delay: calc(var(--i) * -1.3s);
+  transition: scale .35s cubic-bezier(.34,1.56,.64,1);
 }
+.floater svg.app-icon__svg--figma { width: auto; }
+.floater:hover .app-icon__svg { scale: 1.18; }
 @keyframes floater-in { from { opacity: 0; scale: .3; } }
-@keyframes floater-bob {
-  from { transform: translateY(-7px) rotate(-3deg); }
-  to { transform: translateY(7px) rotate(3deg); }
+@keyframes floater-drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(7px, -10px); }
+  50% { transform: translate(-3px, -16px); }
+  75% { transform: translate(-8px, -5px); }
+}
+@keyframes floater-sway {
+  from { transform: rotate(-5deg) translateY(2px); }
+  to { transform: rotate(5deg) translateY(-2px); }
 }
 
 /* ============ ABOUT ============ */
@@ -436,6 +457,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .hero__meta--right { color: var(--red); }
   /* Enlarge the cut-out slightly and centre it on the shoulders (51.7% across the image),
      so both shoulders sit the same distance from the screen edges. */
+  .floater { left: var(--mx); top: var(--my); }
   .floater .app-icon__svg { width: 34px; height: 34px; }
   .floater svg.app-icon__svg--figma { width: auto; }
   .hero__portrait img {
@@ -457,7 +479,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
-  .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh::before, .floater, .floater .app-icon__svg { animation: none; }
+  .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh::before, .floater, .floater__drift, .floater .app-icon__svg { animation: none; }
   .split__word { transform: none; transition: none; }
   .marquee__track { animation: none; }
   .process__list li::before, .process__list li span { transform: none !important; opacity: 1 !important; transition: none; }

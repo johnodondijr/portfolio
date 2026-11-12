@@ -51,7 +51,7 @@ export function ScrollEffects() {
     document.querySelectorAll("[data-count]").forEach((el) => countObserver.observe(el));
 
     // Desktop depth: the hero text scrolls a little slower than the page, so the photo rises in front of it.
-    const layers = [...document.querySelectorAll<HTMLElement>(".hero__name, .hero__intro, .hero__meta")];
+    const layers = [...document.querySelectorAll<HTMLElement>(".hero__name, .hero__intro, .hero__meta, .floaters")];
     const hero = document.querySelector<HTMLElement>(".hero");
     const wide = window.matchMedia("(min-width: 761px) and (min-aspect-ratio: 4/5)");
     const still = window.matchMedia("(prefers-reduced-motion: reduce)");
