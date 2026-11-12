@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { OptionalImage } from "./OptionalImage";
-import { ToolIcon } from "./ToolIcon";
+import { AppIcon } from "./AppIcon";
 
 // Design apps that float around the portrait. x/y are % of the portrait box,
 // placed around the head and outside the shoulders so they never cover the face.
@@ -39,7 +39,7 @@ export function HeroPortrait() {
               ["--i" as string]: i,
             }}
           >
-            <ToolIcon name={f.name} />
+            <AppIcon name={f.name} />
           </span>
         ))}
       </div>
