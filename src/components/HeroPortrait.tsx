@@ -11,8 +11,8 @@ const floaters = [
   { name: "Figma", x: 79, y: 5, rot: 7, dur: 5.4 },
   { name: "Adobe Illustrator", x: 10, y: 35, rot: 6, dur: 6.8 },
   { name: "Canva", x: 89, y: 30, rot: -6, dur: 5.9 },
-  { name: "After Effects", x: 6, y: 79, rot: -5, dur: 7.2 },
-  { name: "InDesign", x: 94, y: 79, rot: 8, dur: 6.5 },
+  { name: "After Effects", x: 6, y: 84, rot: -5, dur: 7.2 },
+  { name: "InDesign", x: 94, y: 84, rot: 8, dur: 6.5 },
 ];
 
 export function HeroPortrait() {
