@@ -6,7 +6,7 @@ import { OptionalImage } from "./OptionalImage";
 
 // Design apps that float around the portrait. x/y (desktop) and mx/my (phones) are each
 // icon's preferred spot as % of the portrait box; placeFloaters moves it to the nearest spot
-// that keeps clear of the face, the GRAPHIC DESIGNER line, the intro panels, the pills and
+// that keeps clear of the face, the "Graphic Designer" line, the intro panels, the pills and
 // the nav. depth sets how far each one leans with the mouse.
 const floaters = [
   { name: "Adobe Photoshop", x: 22, y: 6, mx: 9, my: 26, rot: -8, dur: 6.2, depth: 1.3 },

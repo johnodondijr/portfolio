@@ -34,7 +34,7 @@ export default async function Home() {
             ))}
           </span>{" "}
           <span className="hero__role" aria-hidden="true">
-            GRAPHIC DESIGNER
+            Graphic Designer
           </span>
         </h1>
         <HeroPortrait />

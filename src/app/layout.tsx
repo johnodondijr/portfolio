@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, Inter_Tight, Syne } from "next/font/google";
+import { Exo, Inter_Tight, Syne } from "next/font/google";
 import "./globals.css";
 
 const interTight = Inter_Tight({
@@ -14,10 +14,10 @@ const syne = Syne({
   weight: ["500", "600", "700", "800"],
 });
 
-const bigShoulders = Big_Shoulders({
-  variable: "--font-big-shoulders",
+const exo = Exo({
+  variable: "--font-exo",
   subsets: ["latin"],
-  weight: "900",
+  weight: "500",
 });
 
 const title = "Johnfred | Graphic Designer";
@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${interTight.variable} ${syne.variable} ${bigShoulders.variable}`}>
+    <html lang="en" className={`${interTight.variable} ${syne.variable} ${exo.variable}`}>
       <body>{children}</body>
     </html>
   );
