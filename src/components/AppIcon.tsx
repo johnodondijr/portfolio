@@ -71,7 +71,17 @@ function Claude() {
   );
 }
 
-const custom: Record<string, () => React.ReactElement> = { Figma, Canva, ChatGPT, Gemini, Claude };
+// Higgsfield's app icon: the black squiggle on its lime rounded tile.
+function Higgsfield() {
+  return (
+    <svg viewBox="0 0 24 24" className="app-icon__svg">
+      <rect width="24" height="24" rx="5.4" fill="#D1FE17" />
+      <path fill="#111" d={toolIcons.Higgsfield.path} />
+    </svg>
+  );
+}
+
+const custom: Record<string, () => React.ReactElement> = { Figma, Canva, ChatGPT, Gemini, Claude, Higgsfield };
 
 export const hasAppIcon = (name: string) => name in custom || name in adobe;
 
