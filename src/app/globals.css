@@ -226,8 +226,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .placeholder-label { font-size: 13px; color: var(--muted); }
 .about__media p { color: #3b3b3b; margin-bottom: 18px; }
 
-/* the deep teal of the testimonials panel, used to highlight part of a heading */
-.accent-teal { color: #0f4c49; }
+/* the brighter teal from the glowing corner of the testimonials panel, for heading highlights */
+.accent-teal { color: #166864; }
 
 /* ============ SERVICES ============ */
 .services__head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
