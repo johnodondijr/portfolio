@@ -64,6 +64,15 @@
       "placeholder_color": "#8ee3e0"
     },
     {
+      "id": "09516451-8ce4-4eb5-a202-f5136c39cebb",
+      "title": "Arsenal vs Man City",
+      "subtitle": "Matchday Poster",
+      "category": "social",
+      "image_url": "/images/work/arsenal-city-matchday-poster.webp",
+      "placeholder_label": "Matchday Poster",
+      "placeholder_color": "#ff8a65"
+    },
+    {
       "id": "9516e9f6-73b2-4820-a1bd-1d1883143700",
       "title": "Carousel Series",
       "subtitle": "Social Media Graphics",
@@ -80,6 +89,15 @@
       "image_url": "/images/work/ironclad-preworkout-ad.webp",
       "placeholder_label": "Product Ad",
       "placeholder_color": "#d9ff5c"
+    },
+    {
+      "id": "cebfb41f-518f-4041-a76b-cafebae9149c",
+      "title": "Alomar Recruitment",
+      "subtitle": "Job Ad Series",
+      "category": "social",
+      "image_url": "/images/work/alomar-recruitment-collage.webp",
+      "placeholder_label": "Job Ads",
+      "placeholder_color": "#9fb4ff"
     },
     {
       "id": "3e993da0-adf6-42b4-9daa-6ede502e66a9",
