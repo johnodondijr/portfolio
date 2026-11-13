@@ -8,6 +8,7 @@ import { SplitWords } from "@/components/SplitWords";
 import { Testimonials } from "@/components/Testimonials";
 import { AppIcon, hasAppIcon } from "@/components/AppIcon";
 import { ToolIcon } from "@/components/ToolIcon";
+import { TypedIntro } from "@/components/TypedIntro";
 import { WorkGrid } from "@/components/WorkGrid";
 import { contact, extras, faqs, process, services, stats, tools } from "@/content";
 import { getProjects, getTestimonials } from "@/lib/data";
@@ -38,9 +39,10 @@ export default async function Home() {
           </span>
         </h1>
         <HeroPortrait />
-        <p className="hero__intro hero__intro--left">
-          Hi, I&apos;m Johnfred, a graphic designer creating bold visuals that get brands noticed.
-        </p>
+        <TypedIntro
+          className="hero__intro hero__intro--left"
+          text="Hi, I'm Johnfred, a graphic designer creating bold visuals that get brands noticed."
+        />
         <p className="hero__intro hero__intro--right">
           Social media graphics, brand identity and UI design, crafted with purpose and made to stand out.
         </p>

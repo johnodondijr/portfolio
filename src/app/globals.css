@@ -131,6 +131,22 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   box-shadow: 0 6px 24px rgba(34,37,40,.06);
 }
 .hero__intro--left { margin-left: -16px; }
+
+/* Typewriter intro: the invisible sizer holds the full sentence so the box never resizes,
+   and the live text is stacked on top of it. */
+.typer { display: grid; text-align: center; }
+.typer__sizer, .typer__live { grid-area: 1 / 1; }
+.typer__sizer { visibility: hidden; }
+.typer__cursor {
+  display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: -0.18em;
+  background: #12b8aa; border-radius: 1px;
+}
+.typer__cursor.is-blinking { animation: cursor-blink 1s steps(1) infinite; }
+@keyframes cursor-blink { 50% { opacity: 0; } }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
 .hero__intro--right { margin-right: -16px; }
 .hero__meta {
   position: relative; z-index: 3; align-self: end; font-size: 14px;
@@ -464,7 +480,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
     flex-shrink: 0; max-width: none; max-height: none; transform: none;
     width: min(108%, 740px); margin: 0 0 0 calc(50% - 0.517 * min(108%, 740px));
   }
-  .hero__intro--left { grid-row: 3; margin-top: 0; padding-top: 4px; }
+  .hero__intro--left { grid-row: 3; margin-top: 0; padding-top: 4px; justify-self: center; text-align: center; }
   .hero__meta--left, .hero__meta--right { grid-column: 1; grid-row: 4; margin: 24px 0 0; }
   .hero__meta--right { justify-self: end; }
 }
@@ -481,6 +497,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   .reveal { opacity: 1; transform: none; }
   .hero, .contact, .hero__role, .hero__arrow, .hero__letter, .hero__portrait img, .bg-mesh::before, .floater, .floater__drift, .floater .app-icon__svg { animation: none; }
   .split__word { transform: none; transition: none; }
+  .typer__cursor { display: none; }
   .marquee__track { animation: none; }
   .process__list li::before, .process__list li span { transform: none !important; opacity: 1 !important; transition: none; }
   .project__thumb { transform: none; }
