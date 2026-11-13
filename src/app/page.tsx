@@ -111,7 +111,7 @@ export default async function Home() {
             <h2 className="h2">
               Design Services That
               <br />
-              Make Brands Shine
+              <span className="accent-teal">Make Brands Shine</span>
             </h2>
           </div>
           <p className="muted">

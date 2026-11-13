@@ -413,7 +413,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 @keyframes glow-drift { to { background-position: 70% 100%, 0 0; } }
 @keyframes glow-drift-up { to { background-position: 30% 0%; } }
 .contact__title { font-size: clamp(36px, 6.4vw, 88px); line-height: 1; letter-spacing: -0.045em; font-weight: 700; margin-bottom: 40px; }
-.contact__title em { font-style: normal; font-weight: 500; }
+.contact__title em { font-style: normal; font-weight: 500; color: #166864; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px; padding: 16px 28px; border-radius: 999px;
   background: var(--ink); color: #fff; font-weight: 600; transition: transform .2s, gap .2s;
