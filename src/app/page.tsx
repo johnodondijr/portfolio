@@ -61,7 +61,9 @@ export default async function Home() {
       <section className="about section" id="about">
         <div className="about__text">
           <span className="eyebrow">(About Me)</span>
-          <h2 className="h2">Good design gets seen. Great design gets remembered.</h2>
+          <h2 className="h2">
+            Good design gets seen. <span className="accent-teal">Great design gets remembered.</span>
+          </h2>
           <div className="about__stats">
             {stats.map((s) => (
               <div key={s.label}>
