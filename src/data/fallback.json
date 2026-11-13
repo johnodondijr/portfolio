@@ -1,21 +1,21 @@
 {
   "projects": [
     {
-      "id": "bea9b12d-c53c-4618-bf09-16b793ea2fac",
-      "title": "Product Launch Campaign",
-      "subtitle": "Social Media Graphics",
+      "id": "cebfb41f-518f-4041-a76b-cafebae9149c",
+      "title": "Alomar Recruitment",
+      "subtitle": "Job Ad Series",
       "category": "social",
-      "image_url": "/images/work/finance-app-campaign.webp",
-      "placeholder_label": "Social Campaign",
-      "placeholder_color": "#fdc121"
+      "image_url": "/images/work/alomar-recruitment-collage.webp",
+      "placeholder_label": "Job Ads",
+      "placeholder_color": "#9fb4ff"
     },
     {
-      "id": "7b0cc00b-79e7-4531-b85e-8f8b57cf8efa",
-      "title": "Mobile App Interface",
-      "subtitle": "UI Design",
-      "category": "ui",
-      "image_url": "/images/work/bitewell-app-ui.webp",
-      "placeholder_label": "Mobile App UI",
+      "id": "7a957f28-f4d0-426f-9f72-f72df7af2067",
+      "title": "Shwari Travels",
+      "subtitle": "Flight Booking Ad",
+      "category": "social",
+      "image_url": "/images/work/shwari-travels-flight-ad.webp",
+      "placeholder_label": "Travel Ad",
       "placeholder_color": "#9fb4ff"
     },
     {
@@ -28,30 +28,21 @@
       "placeholder_color": "#b6e3a8"
     },
     {
-      "id": "efb244f6-c4e3-4c9c-b3da-432d1df6a356",
-      "title": "Mboko Hotel",
-      "subtitle": "Food Promo Poster",
+      "id": "3e993da0-adf6-42b4-9daa-6ede502e66a9",
+      "title": "Live Music Experience",
+      "subtitle": "Event Posters & Tickets",
       "category": "social",
-      "image_url": "/images/work/mboko-hotel-food-poster.webp",
-      "placeholder_label": "Food Poster",
-      "placeholder_color": "#ff8a65"
+      "image_url": "/images/work/xii-live-music-campaign.webp",
+      "placeholder_label": "Live Music",
+      "placeholder_color": "#d4b3ff"
     },
     {
-      "id": "4068a5bb-0a76-4a82-a9b6-ecda39a43688",
-      "title": "Agency Brand Identity",
-      "subtitle": "Branding",
-      "category": "branding",
-      "image_url": "/images/work/destiny-recruit-collage.webp",
-      "placeholder_label": "Brand Identity",
-      "placeholder_color": "#e8d5c4"
-    },
-    {
-      "id": "7a957f28-f4d0-426f-9f72-f72df7af2067",
-      "title": "Shwari Travels",
-      "subtitle": "Flight Booking Ad",
-      "category": "social",
-      "image_url": "/images/work/shwari-travels-flight-ad.webp",
-      "placeholder_label": "Travel Ad",
+      "id": "7b0cc00b-79e7-4531-b85e-8f8b57cf8efa",
+      "title": "Mobile App Interface",
+      "subtitle": "UI Design",
+      "category": "ui",
+      "image_url": "/images/work/bitewell-app-ui.webp",
+      "placeholder_label": "Mobile App UI",
       "placeholder_color": "#9fb4ff"
     },
     {
@@ -64,21 +55,30 @@
       "placeholder_color": "#8ee3e0"
     },
     {
-      "id": "09516451-8ce4-4eb5-a202-f5136c39cebb",
-      "title": "Arsenal vs Man City",
-      "subtitle": "Matchday Poster (Concept)",
-      "category": "social",
-      "image_url": "/images/work/arsenal-city-matchday-poster.webp",
-      "placeholder_label": "Matchday Poster",
-      "placeholder_color": "#ff8a65"
-    },
-    {
       "id": "9516e9f6-73b2-4820-a1bd-1d1883143700",
       "title": "Carousel Series",
       "subtitle": "Social Media Graphics",
       "category": "social",
       "image_url": "/images/work/jenga-construction-carousel.webp",
       "placeholder_label": "Carousel Series",
+      "placeholder_color": "#ff8a65"
+    },
+    {
+      "id": "4068a5bb-0a76-4a82-a9b6-ecda39a43688",
+      "title": "Agency Brand Identity",
+      "subtitle": "Branding",
+      "category": "branding",
+      "image_url": "/images/work/destiny-recruit-collage.webp",
+      "placeholder_label": "Brand Identity",
+      "placeholder_color": "#e8d5c4"
+    },
+    {
+      "id": "efb244f6-c4e3-4c9c-b3da-432d1df6a356",
+      "title": "Mboko Hotel",
+      "subtitle": "Food Promo Poster",
+      "category": "social",
+      "image_url": "/images/work/mboko-hotel-food-poster.webp",
+      "placeholder_label": "Food Poster",
       "placeholder_color": "#ff8a65"
     },
     {
@@ -91,22 +91,22 @@
       "placeholder_color": "#d9ff5c"
     },
     {
-      "id": "cebfb41f-518f-4041-a76b-cafebae9149c",
-      "title": "Alomar Recruitment",
-      "subtitle": "Job Ad Series",
+      "id": "09516451-8ce4-4eb5-a202-f5136c39cebb",
+      "title": "Arsenal vs Man City",
+      "subtitle": "Matchday Poster (Concept)",
       "category": "social",
-      "image_url": "/images/work/alomar-recruitment-collage.webp",
-      "placeholder_label": "Job Ads",
-      "placeholder_color": "#9fb4ff"
+      "image_url": "/images/work/arsenal-city-matchday-poster.webp",
+      "placeholder_label": "Matchday Poster",
+      "placeholder_color": "#ff8a65"
     },
     {
-      "id": "3e993da0-adf6-42b4-9daa-6ede502e66a9",
-      "title": "Live Music Experience",
-      "subtitle": "Event Posters & Tickets",
+      "id": "bea9b12d-c53c-4618-bf09-16b793ea2fac",
+      "title": "Product Launch Campaign",
+      "subtitle": "Social Media Graphics",
       "category": "social",
-      "image_url": "/images/work/xii-live-music-campaign.webp",
-      "placeholder_label": "Live Music",
-      "placeholder_color": "#d4b3ff"
+      "image_url": "/images/work/finance-app-campaign.webp",
+      "placeholder_label": "Social Campaign",
+      "placeholder_color": "#fdc121"
     }
   ],
   "testimonials": [
