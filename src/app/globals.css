@@ -461,7 +461,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   }
   /* fade the photo into a dark band that holds the intro text */
   .hero__portrait::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60%;
+    /* bottom: -3px overlaps the band, so no sub-pixel gap can show at high-density screens */
+    content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 60%;
     /* Eased stops, reaching solid ink before the photo's bottom edge so the photo melts
        into the dark band below with no visible join. */
     background: linear-gradient(to bottom,
@@ -470,7 +471,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   }
   .hero::after {
     content: ""; grid-row: 3 / 5; grid-column: 1; z-index: 0;
-    margin: 0 calc(-1 * var(--gutter)) -24px;
+    /* reaches 3px up under the photo so its fractional bottom edge never leaves a hairline */
+    margin: -3px calc(-1 * var(--gutter) - 2px) -24px;
     background: var(--ink);
   }
   .hero__intro { color: #fff; max-width: 330px; padding: 0; margin-left: 0; margin-right: 0; background: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
