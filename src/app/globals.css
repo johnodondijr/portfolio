@@ -461,12 +461,17 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   }
   /* fade the photo into a dark band that holds the intro text */
   .hero__portrait::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 45%;
-    background: linear-gradient(to bottom, rgba(34,37,40,0), rgba(34,37,40,.55) 55%, var(--ink));
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60%;
+    /* Eased stops, reaching solid ink before the photo's bottom edge so the photo melts
+       into the dark band below with no visible join. */
+    background: linear-gradient(to bottom,
+      rgba(34,37,40,0) 0%, rgba(34,37,40,.1) 22%, rgba(34,37,40,.3) 42%,
+      rgba(34,37,40,.6) 60%, rgba(34,37,40,.88) 76%, var(--ink) 88%, var(--ink) 100%);
   }
   .hero::after {
     content: ""; grid-row: 3 / 5; grid-column: 1; z-index: 0;
-    margin: 0 calc(-1 * var(--gutter)) -24px; background: var(--ink);
+    margin: 0 calc(-1 * var(--gutter)) -24px;
+    background: var(--ink);
   }
   .hero__intro { color: #fff; max-width: 330px; padding: 0; margin-left: 0; margin-right: 0; background: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .hero__meta { background: rgba(255,255,255,.08); color: #fff; }
