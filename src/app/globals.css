@@ -346,6 +346,21 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 
 /* ============ TESTIMONIALS ============ */
 .testimonials { padding-top: 0; }
+/* The whole testimonials block sits on a soft white panel, like the service cards. */
+.testimonials__panel {
+  position: relative; overflow: hidden;
+  background: var(--soft); border: 1px solid var(--line); border-radius: 28px;
+  padding: clamp(24px, 4vw, 52px);
+  box-shadow: 0 24px 60px rgba(34,37,40,.07), 0 2px 8px rgba(34,37,40,.04);
+}
+/* a faint teal glow in the corner ties it to the hero and contact sections */
+.testimonials__panel::before {
+  content: ""; position: absolute; top: -40%; right: -20%; width: 60%; height: 90%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(52,231,215,.16), rgba(52,231,215,0));
+}
+.testimonials__panel > * { position: relative; }
+/* the forced line break in the intro only suits wide screens */
+@media (max-width: 760px) { .testimonials__head br { display: none; } }
 .testimonials__head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; }
 .arrows { display: flex; gap: 8px; }
 .arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); font-size: 16px; transition: transform .2s; }
@@ -361,7 +376,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .quote__logo { width: 26px; height: 26px; border-radius: 8px; background: var(--teal); color: var(--ink); font-weight: 700; display: grid; place-items: center; font-size: 13px; }
 .quote p { font-size: 15px; color: #3b3b3b; }
 .quote cite { display: block; margin-top: 14px; font-style: normal; font-size: 13px; color: var(--muted); }
-.progress { height: 2px; background: var(--line); margin-top: 48px; }
+.progress { height: 2px; background: var(--line); margin-top: 40px; }
 .progress span { display: block; height: 100%; width: 30%; background: var(--ink); transition: width .2s; }
 
 /* ============ FAQ ============ */
