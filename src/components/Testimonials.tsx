@@ -33,7 +33,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
           <div>
             <h2 className="h2">Testimonials</h2>
             <p className="muted small">
-              Kind words from some of the brands
+              Kind words from some of the brands{" "}
               <br />
               I&apos;ve had the pleasure of designing for.
             </p>
