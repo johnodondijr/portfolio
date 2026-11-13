@@ -462,12 +462,9 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   /* fade the photo into a dark band that holds the intro text */
   .hero__portrait::after {
     /* bottom: -3px overlaps the band, so no sub-pixel gap can show at high-density screens */
-    content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 38%;
-    /* Eased stops: light enough over the folded arms to keep them visible, then a quick
-       ramp to solid ink in the last few pixels so the photo melts into the band with no join. */
-    background: linear-gradient(to bottom,
-      rgba(34,37,40,0) 0%, rgba(34,37,40,.08) 35%, rgba(34,37,40,.22) 60%,
-      rgba(34,37,40,.45) 78%, rgba(34,37,40,.75) 90%, var(--ink) 98%, var(--ink) 100%);
+    content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 40%;
+    /* A single even gradient: solid ink at the bottom, fully transparent at the top. */
+    background: linear-gradient(to top, var(--ink) 0%, rgba(34,37,40,0) 100%);
   }
   .hero::after {
     content: ""; grid-row: 3 / 5; grid-column: 1; z-index: 0;
