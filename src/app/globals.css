@@ -261,10 +261,10 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .services__extra p { font-size: 15px; color: #bdbdbd; }
 .services__extra strong { color: #fff; }
 .services__extra ul { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; }
-.services__extra li { font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; background: var(--teal); color: var(--ink); }
+.services__extra li { font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; background: #166864; color: #fff; }
 
 /* ============ MARQUEE ============ */
-.marquee { overflow: hidden; padding: 22px 0; background: var(--ink); color: var(--teal); }
+.marquee { overflow: hidden; padding: 22px 0; background: var(--ink); color: #fff; }
 .marquee__track { display: flex; gap: 32px; width: max-content; animation: marquee 40s linear infinite; }
 .marquee__item { display: contents; }
 .tool { display: inline-flex; align-items: center; gap: 12px; }
@@ -280,7 +280,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .tool .app-icon__svg { display: block; flex-shrink: 0; width: clamp(28px, 2.6vw, 36px); height: clamp(28px, 2.6vw, 36px); }
 .tool svg.app-icon__svg--figma { width: auto; }
 .tool__monogram { font-family: var(--display); font-size: 16px; font-weight: 800; line-height: 1; color: var(--ink); }
-.marquee__track i { color: #fff; font-style: normal; font-size: 18px; align-self: center; }
+.marquee__track i { color: var(--teal); font-style: normal; font-size: 18px; align-self: center; }
 @keyframes marquee { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
 /* ============ WORK ============ */
