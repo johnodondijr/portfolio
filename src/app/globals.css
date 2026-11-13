@@ -461,10 +461,26 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   }
   /* fade the photo into a dark band that holds the intro text */
   .hero__portrait::after {
-    /* bottom: -3px overlaps the band, so no sub-pixel gap can show at high-density screens */
-    content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 40%;
-    /* A single even gradient: solid ink at the bottom, fully transparent at the top. */
-    background: linear-gradient(to top, var(--ink) 0%, rgba(34,37,40,0) 100%);
+    /* One continuous layer from the lower photo to the bottom of the hero: fully transparent
+       at the top, an eased ramp (smoothstep, so neither end shows a crease) to solid ink at the photo's bottom edge (the photo is about
+       91vw tall here, so 40% of it is ~36.5vw, capped for tablets), then solid ink below.
+       Being a single layer, it leaves no edges or corners beside the shoulders. The hero's
+       overflow clips the extra length. */
+    content: ""; position: absolute; left: 0; right: 0;
+    top: calc(100% - min(36.5vw, 250px)); bottom: -600px;
+    background: linear-gradient(to bottom,
+      rgba(34,37,40,0.000) calc(min(36.5vw, 250px) * 0.0),
+      rgba(34,37,40,0.028) calc(min(36.5vw, 250px) * 0.1),
+      rgba(34,37,40,0.104) calc(min(36.5vw, 250px) * 0.2),
+      rgba(34,37,40,0.216) calc(min(36.5vw, 250px) * 0.3),
+      rgba(34,37,40,0.352) calc(min(36.5vw, 250px) * 0.4),
+      rgba(34,37,40,0.500) calc(min(36.5vw, 250px) * 0.5),
+      rgba(34,37,40,0.648) calc(min(36.5vw, 250px) * 0.6),
+      rgba(34,37,40,0.784) calc(min(36.5vw, 250px) * 0.7),
+      rgba(34,37,40,0.896) calc(min(36.5vw, 250px) * 0.8),
+      rgba(34,37,40,0.972) calc(min(36.5vw, 250px) * 0.9),
+      rgba(34,37,40,1.000) calc(min(36.5vw, 250px) * 1.0),
+      var(--ink) 100%);
   }
   .hero::after {
     content: ""; grid-row: 3 / 5; grid-column: 1; z-index: 0;
